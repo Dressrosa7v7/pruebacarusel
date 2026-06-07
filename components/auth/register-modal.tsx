@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useAuth } from '@/components/providers/auth-provider';
+import { useToast } from '@/hooks/use-toast';
 import { X, AlertCircle, WifiOff, UserX, Mail, Lock } from 'lucide-react';
 
 interface RegisterModalProps {
@@ -44,7 +45,8 @@ function getErrorMessage(error: string): { message: string; type: 'user' | 'emai
 }
 
 export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModalProps) {
-  const { register } = useAuth();
+  const { register, user } = useAuth();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -115,6 +117,10 @@ export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModa
 
     try {
       await register(formData);
+      toast({
+        title: '¡Cuenta creada correctamente!',
+        description: 'Ahora inicia sesión para continuar.',
+      });
       onClose();
       setFormData({
         username: '',
