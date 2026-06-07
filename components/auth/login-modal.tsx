@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useAuth } from '@/components/providers/auth-provider';
+import { useToast } from '@/hooks/use-toast';
 import { X, AlertCircle, Wifi, WifiOff } from 'lucide-react';
 
 interface LoginModalProps {
@@ -36,7 +37,8 @@ function getErrorMessage(error: string): { message: string; type: 'credentials' 
 }
 
 export function LoginModal({ isOpen, onClose, onSwitchToRegister }: LoginModalProps) {
-  const { login } = useAuth();
+  const { login, user } = useAuth();
+  const { toast } = useToast();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -50,6 +52,11 @@ export function LoginModal({ isOpen, onClose, onSwitchToRegister }: LoginModalPr
 
     try {
       await login(username, password);
+      const userName = user?.first_name || username;
+      toast({
+        title: '¡Bienvenido!',
+        description: `Hola ${userName}, has iniciado sesión correctamente.`,
+      });
       onClose();
       setUsername('');
       setPassword('');
