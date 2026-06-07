@@ -46,9 +46,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const handleRegister = async (userData: any) => {
     setLoading(true);
     try {
-      const response = await register(userData);
-      setUser(response.user);
-      setCurrentUser(response.user);
+      // El endpoint de registro no retorna usuario ni tokens
+      // Solo retorna mensaje de confirmación
+      // El usuario debe iniciar sesión después
+      await register(userData);
+      // No establecer usuario aquí - dejar que inicie sesión manualmente
     } catch (error) {
       throw error;
     } finally {

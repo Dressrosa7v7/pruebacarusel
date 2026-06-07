@@ -117,10 +117,9 @@ export function RegisterModal({ isOpen, onClose, onSwitchToLogin }: RegisterModa
 
     try {
       await register(formData);
-      const userName = user?.first_name || formData.first_name;
       toast({
-        title: '¡Cuenta creada!',
-        description: `Bienvenido ${userName} a Laguna Beach Club. Tu cuenta ha sido registrada exitosamente.`,
+        title: '¡Cuenta creada correctamente!',
+        description: 'Ahora inicia sesión para continuar.',
       });
       onClose();
       setFormData({

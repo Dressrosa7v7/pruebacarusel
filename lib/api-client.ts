@@ -174,14 +174,12 @@ export async function register(userData: {
       throw new Error(data.Message || 'Error al registrarse');
     }
 
-    const record = data.Record || data;
-    
-    // Si el backend retorna tokens en el registro
-    if (record.access && record.refresh) {
-      saveTokens(record.access, record.refresh);
-    }
-
-    return record;
+    // Registro exitoso retorna { "Mensaje": "Se a creado el usuario" }
+    // No retorna tokens ni usuario. El usuario debe iniciar sesión después.
+    return {
+      Mensaje: data.Mensaje || data.Message || 'Cuenta creada correctamente',
+      // No establecer tokens ni usuario porque el registro no inicia sesión automáticamente
+    };
   } catch (error: any) {
     throw error;
   }
