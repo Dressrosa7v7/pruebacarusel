@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { HeroSection } from "@/components/sections/hero-section"
 import { SectionHeading } from "@/components/sections/section-heading"
 import { ServiceCard } from "@/components/cards/service-card"
+import { PromotionalCarousel } from "@/components/sections/promotional-carousel"
 import { useLanguage } from "@/components/providers/language-provider"
 
 const galleryImages = [
@@ -115,6 +116,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Promotional Carousel Section */}
+      <PromotionalCarousel />
 
       {/* Experience Section */}
       <section className="py-20 sm:py-28 bg-muted">

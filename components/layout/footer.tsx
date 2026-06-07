@@ -86,20 +86,33 @@ export function Footer() {
               <h4 className="font-medium text-sm mb-3">{t.footer.followUs}</h4>
               <div className="flex gap-3">
                 <a
-                  href="https://facebook.com"
+                  href="https://facebook.com/laguna-beach-club"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 hover:bg-primary transition-colors"
+                  aria-label="Facebook"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/laguna.beach.club"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 hover:bg-primary transition-colors"
+                  aria-label="Instagram"
                 >
                   <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://tiktok.com/@lagunabeachclub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 hover:bg-primary transition-colors"
+                  aria-label="TikTok"
+                >
+                  <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.1 1.75 2.9 2.9 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.44-.05z" />
+                  </svg>
                 </a>
               </div>
             </div>
